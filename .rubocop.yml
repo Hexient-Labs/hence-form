@@ -1,0 +1,48 @@
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
+    - 'db/*'
+    - 'slate/*'
+    - 'web/**/*'
+  TargetRubyVersion: 2.4
+CaseIndentation:
+  EnforcedStyle: case
+  IndentOneStep: true
+ClassAndModuleChildren:
+  Enabled: false
+ClassLength:
+  Max: 250
+Metrics/AbcSize:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Metrics/LineLength:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/ParameterLists:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+Style/IfUnlessModifier:
+  Enabled: false
+Style/GuardClause:
+  Enabled: false
+Style/IndentArray:
+  Enabled: false
+Style/Next:
+  Enabled: false
+Style/RaiseArgs:
+  EnforcedStyle: compact
+Style/StringLiterals:
+  EnforcedStyle: double_quotes

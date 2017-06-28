@@ -1,0 +1,8 @@
+{
+  "name": "hence-form",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "csslint": "^1.0.5"
+  }
+}
