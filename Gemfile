@@ -17,6 +17,7 @@ gem "puma"
 gem "rails"
 gem "redis"
 gem "sass-rails"
+gem "sidekiq"
 gem "sqlite3"
 gem "uglifier"
 
