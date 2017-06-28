@@ -1,7 +1,7 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
-  devise_for :users, skip: :all # Required for devise to know how send customers
+  devise_for :users, only: [:confirmations] # Required for devise to know how send customers
 
   # Sidekiq Related
   if Rails.env.production?
