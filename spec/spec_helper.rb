@@ -1,6 +1,8 @@
 if ENV["COVERAGE"]
   require "simplecov"
-  SimpleCov.start "rails"
+  SimpleCov.start "rails" do
+    add_filter "app/channels/*"
+  end
   puts "Running SimpleCov"
 end
 

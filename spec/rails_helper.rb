@@ -65,6 +65,8 @@ RSpec.configure do |config|
   config.after do
     Warden.test_reset!
   end
+
+  config.include FactoryGirl::Syntax::Methods
 end
 
 Shoulda::Matchers.configure do |config|
