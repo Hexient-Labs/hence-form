@@ -7,5 +7,9 @@ describe Submission, type: :model do
     expect(subject).to be_valid
   end
 
+  # Validations
+  it { should validate_presence_of(:email) }
+
+  # Associations
   it { should belong_to(:user) }
 end
