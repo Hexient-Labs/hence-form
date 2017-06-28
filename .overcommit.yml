@@ -48,13 +48,13 @@ quiet: false
 # processors you can lower this value accordingly. You can define
 # single-operator mathematical expressions, e.g. '%{processors} * 2', or
 # '%{processors} / 2'.
-concurrency: '%{processors}'
+#concurrency: '%{processors}'
 
 # Whether to check if a hook plugin has changed since Overcommit last ran it.
 # This is a defense mechanism when working with repositories which can contain
 # untrusted code (e.g. when you fetch a pull request from a third party).
 # See https://github.com/brigade/overcommit#security for more information.
-verify_signatures: false
+verify_signatures: true
 
 # Hooks that are run against every commit message after a user has written it.
 # These hooks are useful for enforcing policies on commit messages written for a
@@ -66,25 +66,25 @@ CommitMsg:
 
   CapitalizedSubject:
     enabled: true
-    description: "Check subject capitalization"
+    description: 'Check subject capitalization'
 
   EmptyMessage:
     enabled: true
-    description: "Check for empty commit message"
+    description: 'Check for empty commit message'
     quiet: true
 
   GerritChangeId:
     enabled: false
-    description: "Ensure Gerrit Change-Id is present"
+    description: 'Ensure Gerrit Change-Id is present'
     required: true
 
   HardTabs:
     enabled: true
-    description: "Check for hard tabs"
+    description: 'Check for hard tabs'
 
   MessageFormat:
     enabled: false
-    description: "Check commit message matches expected pattern"
+    description: 'Check commit message matches expected pattern'
     pattern: '(.+)[|](.+)[|](.+)'
     expected_pattern_message: '<Issue Id> | <Commit Message Description> | <Developer(s)>'
     sample_message: 'DEFECT-1234 | Refactored Onboarding flow | John Doe'
@@ -124,9 +124,6 @@ PreCommit:
     requires_files: true
     required: false
     quiet: false
-    exclude:
-      - 'node_modules/**/*'
-      - 'vendor/**/*'
 
   AuthorEmail:
     enabled: true
@@ -153,19 +150,16 @@ PreCommit:
       - 'Berksfile'
       - 'Berksfile.lock'
 
-  Brakeman:
-    enabled: false
-    description: 'Check for security vulnerabilities'
-    required_executable: 'brakeman'
-    flags: ['--exit-on-warn', '--quiet', '--summary', '--except=CheckForgerySetting']
-    install_command: 'gem install brakeman'
-    include:
-      - '**/*.rb'
-
   BrokenSymlinks:
     enabled: true
     description: 'Check for broken symlinks'
     quiet: true
+
+  BundleAudit:
+    enabled: true
+    description: 'Check for vulnerable versions of gems'
+    required_executable: 'bundle-audit'
+    install_command: 'gem install bundler-audit'
 
   BundleCheck:
     enabled: false
@@ -177,6 +171,13 @@ PreCommit:
       - 'Gemfile'
       - 'Gemfile.lock'
       - '*.gemspec'
+
+  BundleOutdated:
+    enabled: false
+    description: 'List installed gems with newer versions available'
+    required_executable: 'bundle'
+    flags: ['outdated', '--strict', '--parseable']
+    install_command: 'gem install bundler'
 
   CaseConflicts:
     enabled: true
@@ -201,6 +202,15 @@ PreCommit:
     install_command: 'npm install -g coffeelint'
     include: '**/*.coffee'
 
+  Credo:
+    enabled: false
+    description: 'Analyze with credo'
+    required_executable: 'mix'
+    flags: ['credo', '--all', '--strict', '--format', 'flycheck']
+    include:
+      - '**/*.ex'
+      - '**/*.exs'
+
   CssLint:
     enabled: true
     description: 'Analyze with csslint'
@@ -221,23 +231,41 @@ PreCommit:
   EsLint:
     enabled: true
     description: 'Analyze with ESLint'
-    required_executable: 'web/node_modules/.bin/eslint'
+    required_executable: 'node_modules/.bin/eslint'
     flags: ['--format=compact', --ext=.jsx', '--ext=.js', '--ext=es6']
-    install_command: 'npm install'
+    install_command: 'npm install -g eslint'
     include:
       - '**/*.js'
       - '**/*.jsx'
       - '**/*.es6'
     exclude:
-      - 'web/thumbster-react/public/bundle.js'
-      - 'web/thumbster-react/public/bundle.js.map'
       - 'public/**/*'
-      - 'web/webpack.config.js'
 
   ExecutePermissions:
     enabled: false
     description: 'Check for file execute permissions'
     quiet: true
+
+  Fasterer:
+    enabled: false
+    description: 'Analyzing for potential speed improvements'
+    required_executable: 'fasterer'
+    install_command: 'gem install fasterer'
+    include: '**/*.rb'
+
+  FixMe:
+    enabled: false
+    description: 'Check for "token" strings'
+    required_executable: 'grep'
+    flags: ['-IEHnw']
+    keywords: ['BROKEN', 'BUG', 'ERROR', 'FIXME', 'HACK', 'NOTE', 'OPTIMIZE', 'REVIEW', 'TODO', 'WTF', 'XXX']
+
+  Foodcritic:
+    enabled: false
+    description: 'Analyze with Foodcritic'
+    required_executable: 'foodcritic'
+    flags: ['--epic-fail=any']
+    install_command: 'gem install foodcritic'
 
   ForbiddenBranches:
     enabled: false
@@ -260,11 +288,19 @@ PreCommit:
     install_command: 'go get golang.org/x/tools/cmd/vet'
     include: '**/*.go'
 
+  Hadolint:
+    enabled: false
+    description: 'Analyze with hadolint'
+    required_executable: 'hadolint'
+    include:
+      - '**/Dockerfile*'
+
   HamlLint:
     enabled: false
     description: 'Analyze with haml-lint'
     required_executable: 'haml-lint'
     install_command: 'gem install haml-lint'
+    flags: ['--no-summary']
     include: '**/*.haml'
 
   HardTabs:
@@ -318,7 +354,7 @@ PreCommit:
     enabled: false
     description: 'Analyze with JSCS'
     required_executable: 'jscs'
-    flags: ['--reporter=inline', '--verbose']
+    flags: ['--reporter=inline']
     install_command: 'npm install -g jscs'
     include: '**/*.js'
 
@@ -329,9 +365,6 @@ PreCommit:
     flags: ['--verbose']
     install_command: 'npm install -g jshint'
     include: '**/*.js'
-    exclude:
-      - 'web/webpack.config.js'
-      - 'web/webpack.production.config.js'
 
   JsLint:
     enabled: false
@@ -355,8 +388,28 @@ PreCommit:
     install_command: 'gem install json'
     include: '**/*.json'
 
-  LocalPathsInGemfile:
+  LicenseFinder:
     enabled: true
+    description: 'Analyze with LicenseFinder'
+    required_executable: 'license_finder'
+    install_command: 'gem install license_finder'
+    include:
+      - 'Gemfile'
+      - 'requirements.txt'
+      - 'package.json'
+      - 'pom.xml'
+      - 'build.gradle'
+      - 'bower.json'
+      - 'Podfile'
+      - 'rebar.config'
+
+  LicenseHeader:
+    enabled: false
+    license_file: 'LICENSE.txt'
+    description: 'Check source files for license headers'
+
+  LocalPathsInGemfile:
+    enabled: false
     description: 'Check for local paths in Gemfile'
     required_executable: 'grep'
     flags: ['-IHnE', "^[^#]*((\\bpath:)|(:path[ \t]*=>))"]
@@ -383,19 +436,26 @@ PreCommit:
     flags: ['-t']
     include: '**/nginx.conf'
 
-  Pep257:
+  Pep257:  # Deprecated – use Pydocstyle instead.
     enabled: false
     description: 'Analyze docstrings with pep257'
     required_executable: 'pep257'
     install_command: 'pip install pep257'
     include: '**/*.py'
 
-  Pep8:
+  Pep8:  # Deprecated – use Pycodestyle instead.
     enabled: false
     description: 'Analyze with pep8'
     required_executable: 'pep8'
     install_command: 'pip install pep8'
     include: '**/*.py'
+
+  Pronto:
+    enabled: false
+    description: 'Analyzing with pronto'
+    required_executable: 'pronto'
+    install_command: 'gem install pronto'
+    flags: ['run', '--staged', '--exit-code']
 
   PuppetLint:
     enabled: false
@@ -407,6 +467,20 @@ PreCommit:
       - '--fail-on-warnings'
       - '--error-level=all'
     include: '**/*.pp'
+
+  Pycodestyle:
+    enabled: false
+    description: 'Analyze with pycodestyle'
+    required_executable: 'pycodestyle'
+    install_command: 'pip install pycodestyle'
+    include: '**/*.py'
+
+  Pydocstyle:
+    enabled: false
+    description: 'Analyze docstrings with pydocstyle'
+    required_executable: 'pydocstyle'
+    install_command: 'pip install pydocstyle'
+    include: '**/*.py'
 
   Pyflakes:
     enabled: false
@@ -432,6 +506,16 @@ PreCommit:
     required_executable: 'flake8'
     install_command: 'pip install flake8'
     include: '**/*.py'
+
+  RakeTarget:
+    enabled: false
+    description: 'Run rake targets'
+    # targets:
+    #  - 'lint'
+    #  - 'validate'
+    #  - '...'
+    required_executable: 'rake'
+    install_command: 'gem install rake'
 
   RailsBestPractices:
     enabled: true
@@ -471,6 +555,7 @@ PreCommit:
       - '**/*.gemspec'
       - '**/*.rake'
       - '**/*.rb'
+      - '**/*.ru'
       - '**/Gemfile'
       - '**/Rakefile'
 
@@ -503,7 +588,7 @@ PreCommit:
     required_library: 'json'
     required_executable: 'scss-lint'
     flags: ['--format', 'JSON']
-    install_command: 'gem install scss-lint'
+    install_command: 'gem install scss_lint'
     include: '**/*.scss'
 
   SemiStandard:
@@ -543,13 +628,19 @@ PreCommit:
     install_command: 'npm install -g standard'
     include: '**/*.js'
 
+  TsLint:
+      enabled: false
+      description: 'Analyze with TSLint'
+      required_executable: 'tslint'
+      install_command: 'npm install -g tslint typescript'
+      flags: ['--t=prose']
+      include: '**/*.ts'
+
   TrailingWhitespace:
     enabled: true
     description: 'Check for trailing whitespace'
     required_executable: 'grep'
     flags: ['-IHn', "[ \t]$"]
-    exclude:
-      - '**/*/dependency_decisions.yml'
 
   TravisLint:
     enabled: false
@@ -591,6 +682,11 @@ PreCommit:
     include:
       - '**/*.html'
 
+  LineEndings:
+    description: 'Check line endings'
+    enabled: false
+    eol: "\n" # or "\r\n" for Windows-style newlines
+
   XmlLint:
     enabled: false
     description: 'Analyze with xmllint'
@@ -608,8 +704,18 @@ PreCommit:
       - '**/*.xml'
       - '**/*.svg'
 
-  YamlSyntax:
+  YamlLint:
     enabled: true
+    description: 'Analyze with YAMLlint'
+    required_executable: 'yamllint'
+    flags: ['--format=parsable']
+    install_command: 'pip install yamllint'
+    include:
+      - '**/*.yaml'
+      - '**/*.yml'
+
+  YamlSyntax:
+    enabled: false
     description: 'Check YAML syntax'
     required_library: 'yaml'
     include:
@@ -621,9 +727,10 @@ PostCheckout:
   ALL:
     required: false
     quiet: false
+    skip_file_checkout: true
 
   BowerInstall:
-    enabled: true
+    enabled: false
     description: 'Install bower dependencies'
     requires_files: true
     required_executable: 'bower'
@@ -632,7 +739,7 @@ PostCheckout:
     include: 'bower.json'
 
   BundleInstall:
-    enabled: true
+    enabled: false
     description: 'Install Bundler dependencies'
     requires_files: true
     required_executable: 'bundle'
@@ -693,6 +800,13 @@ PostCommit:
       - 'Gemfile.lock'
       - '*.gemspec'
 
+  Commitplease:
+    enabled: false
+    description: 'Analyze with Commitplease'
+    required_executable: './node_modules/.bin/commitplease'
+    install_command: 'npm install --save-dev commitplease'
+    flags: ['-1']
+
   GitGuilt:
     enabled: false
     description: 'Calculate changes in blame since last commit'
@@ -739,7 +853,7 @@ PostMerge:
     include: 'bower.json'
 
   BundleInstall:
-    enabled: true
+    enabled: false
     description: 'Install Bundler dependencies'
     requires_files: true
     required_executable: 'bundle'
@@ -829,28 +943,60 @@ PrePush:
     required: false
     quiet: false
 
-  Jest:
-    enabled: true
-    description: 'Run Jest JS test suite'
-    required_executable: 'jest'
-    command: ['jest']
-    include: '**/*.jsx'
-
   ProtectedBranches:
     enabled: false
     description: 'Check for illegal pushes to protected branches'
+    destructive_only: true
     branches: ['master']
+
+  Pytest:
+    enabled: false
+    description: 'Run pytest test suite'
+    required_executable: 'pytest'
+    install_command: 'pip install -U pytest'
+
+  PythonNose:
+    enabled: false
+    description: 'Run nose test suite'
+    required_executable: 'nosetests'
+    install_command: 'pip install -U nose'
 
   RSpec:
     enabled: true
     description: 'Run RSpec test suite'
     required_executable: 'rspec'
 
+  RakeTarget:
+    enabled: false
+    description: 'Run rake targets'
+    # targets:
+    #  - 'lint'
+    #  - 'validate'
+    #  - '...'
+    required_executable: 'rake'
+    install_command: 'gem install rake'
+
   Minitest:
     enabled: false
     description: 'Run Minitest test suite'
     command: ['ruby', '-Ilib:test', '-rminitest', "-e 'exit! Minitest.run'"]
     include: 'test/**/*_test.rb'
+
+  TestUnit:
+    enabled: false
+    description: 'Run Test::Unit test suite'
+    command: ['ruby', '-Ilib:test', '-rtest/unit', "-e 'exit! Test::Unit::AutoRunner.run'"]
+
+  Brakeman:
+    enabled: true
+    description: 'Check for security vulnerabilities'
+    required_executable: 'brakeman'
+    flags: ['--exit-on-warn', '--quiet', '--summary']
+    install_command: 'gem install brakeman'
+
+  GitLfs:
+    enabled: false
+    description: 'Upload files tracked by Git LFS'
 
 # Hooks that run during `git rebase`, before any commits are rebased.
 # If a hook fails, the rebase is aborted.

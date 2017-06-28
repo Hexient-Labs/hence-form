@@ -27,6 +27,7 @@ end
 
 group :development do
   gem "brakeman"
+  gem "bundler-audit"
   gem "license_finder"
   gem "mdl"
   gem "overcommit"
