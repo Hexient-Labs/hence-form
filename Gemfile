@@ -39,6 +39,7 @@ end
 
 group :test do
   gem "capybara"
+  gem "faker"
   gem "rspec-rails"
   gem "selenium-webdriver"
   gem "shoulda-matchers"
