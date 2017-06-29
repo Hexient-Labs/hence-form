@@ -10,8 +10,10 @@ gem "bugsnag"
 gem "devise"
 gem "erb2haml"
 gem "haml-rails"
+gem "inky-rb", require: "inky"
 gem "jbuilder"
 gem "pg"
+gem "premailer-rails"
 gem "pry-rails"
 gem "puma"
 gem "rails"
@@ -25,6 +27,7 @@ group :development, :test do
   gem "dotenv-rails"
   gem "factory_girl_rails"
   gem "pry-inline"
+  gem "spring"
 end
 
 group :development do
