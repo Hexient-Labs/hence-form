@@ -12,5 +12,5 @@ describe User, type: :model do
   end
 
   #  Associations
-  it { should have_many(:submissions) }
+  it { should have_many(:submissions).inverse_of(:user) }
 end

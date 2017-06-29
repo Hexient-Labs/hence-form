@@ -1,7 +1,7 @@
 class Submission < ApplicationRecord
   # Validations
-  validate :email, presence: true
+  validates :to_email, presence: true
 
   # Associations
-  belongs_to :user
+  belongs_to :user, inverse_of: "submissions"
 end

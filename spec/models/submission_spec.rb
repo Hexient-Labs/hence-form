@@ -8,8 +8,8 @@ describe Submission, type: :model do
   end
 
   # Validations
-  it { should validate_presence_of(:email) }
+  it { should validate_presence_of(:to_email) }
 
   # Associations
-  it { should belong_to(:user) }
+  it { should belong_to(:user).inverse_of(:submissions) }
 end
