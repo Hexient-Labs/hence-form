@@ -1,0 +1,31 @@
+:css
+  body,
+  html,
+  .body {
+    background: #f3f3f3 !important;
+  }
+  .container.header {
+    background: transparent !important;
+  }
+  .body-drip {
+    border-top: 8px solid #663399;
+  }
+  }
+%container
+  %row.text-center
+    %columns.header
+      %img.text-center{:alt => "Logo", :src => "https://www.placehold.it/150x65" }/
+  %spacer{:size => "16"}
+%container.body-drip
+  %row
+    %columns
+      %h4.text-center= "New Submission from Hexient Labs"
+  %hr/
+  %row
+    %columns
+      %table
+        %tbody
+          - @submission.data.each do |key, val|
+            %tr
+              %td= key
+              %td= val
