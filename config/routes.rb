@@ -1,7 +1,9 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
-  devise_for :users, only: [:confirmations] # Required for devise to know how send customers
+  scope "app" do
+    devise_for :users, only: [:confirmations] # Required for devise to know how send customers
+  end
 
   # Sidekiq Related
   if Rails.env.production?
@@ -21,5 +23,5 @@ Rails.application.routes.draw do
         )
     end
   end
-  mount Sidekiq::Web => "/sidekiq"
+  mount Sidekiq::Web => "/app/sidekiq"
 end
