@@ -2,6 +2,7 @@ class CreateSubmission
   def self.perform(user:, data:)
     submission = _create_submission(user: user, data: data)
     _send_notice_to_user(submission: submission)
+    submission
   end
 
   class << self
