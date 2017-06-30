@@ -24,4 +24,7 @@ Rails.application.routes.draw do
     end
   end
   mount Sidekiq::Web => "/app/sidekiq"
+
+  # New Submission. This is last thing because we don't want it to interfere elsewhere
+  post "/:hence_form_email", to: "submissions#create"
 end
