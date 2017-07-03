@@ -2,7 +2,12 @@ require "sidekiq/web"
 
 Rails.application.routes.draw do
   scope "app" do
-    devise_for :users, only: [:confirmations] # Required for devise to know how send customers
+    # Required for devise to know how send customers
+    devise_for :users,
+               controllers: {
+                 confirmations: "users/confirmations"
+               },
+               only: [:confirmations]
   end
 
   # Sidekiq Related

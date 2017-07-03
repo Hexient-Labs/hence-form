@@ -32,13 +32,13 @@ Style/Documentation:
   Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
-Style/MultilineMethodCallIndentation:
+Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 Style/IfUnlessModifier:
   Enabled: false
 Style/GuardClause:
   Enabled: false
-Style/IndentArray:
+Layout/IndentArray:
   Enabled: false
 Style/Next:
   Enabled: false

@@ -23,7 +23,6 @@ ProtectMassAssignmentCheck: { }
 RemoveEmptyHelpersCheck: { }
 #RemoveTabCheck: { }
 RemoveTrailingWhitespaceCheck: { }
-RemoveUnusedMethodsInControllersCheck: { except_methods: ["Users::ConfirmationsController#after_confirmation_path_for"] }
 RemoveUnusedMethodsInHelpersCheck: { except_methods: [] }
 RemoveUnusedMethodsInModelsCheck: { except_methods: ["User#send_devise_notification"]}
 ReplaceComplexCreationWithFactoryMethodCheck: { attribute_assignment_count: 2 }
