@@ -57,9 +57,6 @@ GEM
     brakeman (3.7.0)
     bugsnag (5.3.3)
     builder (3.2.3)
-    bundler-audit (0.5.0)
-      bundler (~> 1.2)
-      thor (~> 0.18)
     capybara (2.14.4)
       addressable
       mime-types (>= 1.16)
@@ -278,7 +275,7 @@ GEM
     sexp_processor (4.9.0)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
-    sidekiq (5.0.3)
+    sidekiq (5.0.4)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
@@ -326,7 +323,6 @@ DEPENDENCIES
   annotate
   brakeman
   bugsnag
-  bundler-audit
   capybara
   devise
   dotenv-rails
