@@ -22,7 +22,6 @@ gem "redis"
 gem "redis-namespace"
 gem "sass-rails"
 gem "sidekiq"
-gem "sqlite3"
 gem "uglifier"
 
 group :development, :test do
