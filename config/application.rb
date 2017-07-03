@@ -14,6 +14,9 @@ module HenceForm
     # Use Sidekiq
     config.active_job.queue_adapter = :sidekiq
 
+    # Always set host from ENV
+    Rails.application.routes.default_url_options[:host] = ENV["HOST"]
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
