@@ -156,7 +156,7 @@ PreCommit:
     quiet: true
 
   BundleAudit:
-    enabled: true
+    enabled: false
     description: 'Check for vulnerable versions of gems'
     required_executable: 'bundle-audit'
     install_command: 'gem install bundler-audit'
