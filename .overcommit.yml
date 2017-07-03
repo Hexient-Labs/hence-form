@@ -707,7 +707,7 @@ PreCommit:
       - '**/*.svg'
 
   YamlLint:
-    enabled: true
+    enabled: false
     description: 'Analyze with YAMLlint'
     required_executable: 'yamllint'
     flags: ['--format=parsable']
