@@ -1,0 +1,102 @@
+---
+- - :whitelist
+  - MIT
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2017-07-03 17:56:43.502456000 Z
+- - :whitelist
+  - Apache
+  - &1
+    :who: 
+    :why: 
+    :versions: []
+    :when: 2017-07-03 17:56:51.004553000 Z
+- - :whitelist
+  - '2.0'
+  - *1
+- - :whitelist
+  - New
+  - &2
+    :who: 
+    :why: 
+    :versions: []
+    :when: 2017-07-03 17:56:58.975574000 Z
+- - :whitelist
+  - BSD
+  - *2
+- - :whitelist
+  - LGPL
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2017-07-03 17:57:04.090980000 Z
+- - :whitelist
+  - Apache
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2017-07-03 17:57:11.997248000 Z
+- - :whitelist
+  - Simplified
+  - &3
+    :who: 
+    :why: 
+    :versions: []
+    :when: 2017-07-03 17:57:15.380844000 Z
+- - :whitelist
+  - BSD
+  - *3
+- - :whitelist
+  - Simplified
+  - &4
+    :who: 
+    :why: 
+    :versions: []
+    :when: 2017-07-03 17:57:19.304849000 Z
+- - :whitelist
+  - BSD
+  - *4
+- - :whitelist
+  - Simplified BSD
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2017-07-03 17:57:25.892344000 Z
+- - :whitelist
+  - New BSD
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2017-07-03 17:57:32.811705000 Z
+- - :whitelist
+  - Apache 2.0
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2017-07-03 17:58:01.799528000 Z
+- - :whitelist
+  - ruby
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2017-07-03 17:58:06.432465000 Z
+- - :approve
+  - json
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2017-07-03 17:58:56.307380000 Z
+- - :approve
+  - bundler-audit
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2017-07-03 18:00:00.428990000 Z
+- - :license
+  - inky-rb
+  - MIT
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2017-07-03 18:00:32.052879000 Z

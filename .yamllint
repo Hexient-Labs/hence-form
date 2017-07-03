@@ -1,0 +1,4 @@
+extends: default
+
+ignore: |
+  doc/dependency_decisions.yml
