@@ -26,5 +26,5 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => "/app/sidekiq"
 
   # New Submission. This is last thing because we don't want it to interfere elsewhere
-  post "/:hence_form_email", to: "submissions#create"
+  post "/:hence_form_email", to: "submissions#create", constraints: { hence_form_email: /.+@.+\..*/ }
 end
