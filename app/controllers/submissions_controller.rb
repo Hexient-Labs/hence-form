@@ -2,15 +2,15 @@ class SubmissionsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
-    #   Call Service Object
     if current_user&.confirmed?
       CreateSubmission.perform(user: current_user, data: create_params)
-    #   TODO: Route to thanks page
+      render :successful_submission
     elsif current_user # Also means user is not confirmed
       current_user.send_confirmation_instructions
-      # TODO: Need to route to page asking them to confirm
+      render :awaiting_confirmation
     else
       CreateUser.perform(email: param_email)
+      render :awaiting_confirmation
       # TODO: Route to confirmation page
     end
   end
