@@ -1,5 +1,6 @@
 extends: default
 
 ignore: |
-  doc/dependency_decisions.yml
   .overcommit.yml
+  config/rails_best_practices.yml
+  doc/dependency_decisions.yml

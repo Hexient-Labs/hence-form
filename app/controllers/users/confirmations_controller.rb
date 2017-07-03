@@ -22,7 +22,7 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   # end
 
   # The path used after confirmation.
-  # def after_confirmation_path_for(resource_name, resource)
-  #   super(resource_name, resource) # TODO: Need to route this later to another route that user is confirmed
-  # end
+  def after_confirmation_path_for(_resource_name, _resource)
+    render "submissions/successful_confirmation"
+  end
 end
