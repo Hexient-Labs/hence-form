@@ -5,10 +5,13 @@ class SubmissionsController < ApplicationController
     #   Call Service Object
     if current_user&.confirmed?
       CreateSubmission.perform(user: current_user, data: create_params)
+    #   TODO: Route to thanks page
     elsif current_user # Also means user is not confirmed
+      current_user.send_confirmation_instructions
       # TODO: Need to route to page asking them to confirm
     else
       CreateUser.perform(email: param_email)
+      # TODO: Route to confirmation page
     end
   end
 
