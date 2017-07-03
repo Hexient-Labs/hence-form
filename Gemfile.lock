@@ -1,3 +1,11 @@
+GIT
+  remote: git@github.com:wework/dotenv-rails-safe.git
+  revision: de04179fe420fb1b640a9044ef906d9629099b78
+  tag: v0.3.0
+  specs:
+    dotenv-rails-safe (0.3.0)
+      dotenv-rails (~> 2.2.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -320,6 +328,7 @@ DEPENDENCIES
   capybara
   devise
   dotenv-rails
+  dotenv-rails-safe!
   erb2haml
   factory_girl_rails
   faker
