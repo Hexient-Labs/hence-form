@@ -1,4 +1,6 @@
 class SubmissionsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def create
     #   Call Service Object
     if current_user&.confirmed?
