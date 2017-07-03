@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:wework/dotenv-rails-safe.git
+  remote: https://github.com/rvirani1/dotenv-rails-safe.git
   revision: de04179fe420fb1b640a9044ef906d9629099b78
   tag: v0.3.0
   specs:

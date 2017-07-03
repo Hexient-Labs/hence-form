@@ -8,7 +8,7 @@ end
 
 gem "bugsnag"
 gem "devise"
-gem "dotenv-rails-safe", git: "git@github.com:wework/dotenv-rails-safe.git", tag: "v0.3.0"
+gem "dotenv-rails-safe", git: "https://github.com/rvirani1/dotenv-rails-safe.git", tag: "v0.3.0"
 gem "erb2haml"
 gem "haml-rails"
 gem "inky-rb", require: "inky"
