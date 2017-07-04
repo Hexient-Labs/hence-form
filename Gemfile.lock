@@ -70,6 +70,8 @@ GEM
       ffi (~> 1.0, >= 1.0.11)
     code_analyzer (0.4.7)
       sexp_processor
+    codeclimate-test-reporter (1.0.7)
+      simplecov
     coderay (1.1.1)
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
@@ -370,6 +372,7 @@ DEPENDENCIES
   brakeman
   bugsnag
   capybara
+  codeclimate-test-reporter
   devise
   dotenv-rails
   dotenv-rails-safe!

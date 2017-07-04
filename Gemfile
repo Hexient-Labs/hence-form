@@ -52,6 +52,7 @@ end
 
 group :test do
   gem "capybara"
+  gem "codeclimate-test-reporter"
   gem "faker"
   gem "rspec-rails"
   gem "selenium-webdriver"
