@@ -10,6 +10,7 @@ gem "bugsnag"
 gem "devise"
 gem "dotenv-rails-safe", git: "https://github.com/rvirani1/dotenv-rails-safe.git", tag: "v0.3.0"
 gem "erb2haml"
+gem "font-awesome-rails"
 gem "haml-rails"
 gem "inky-rb", require: "inky"
 gem "jbuilder"
@@ -23,6 +24,14 @@ gem "redis-namespace"
 gem "sass-rails"
 gem "sidekiq"
 gem "uglifier"
+
+source "https://rails-assets.org" do
+  gem "rails-assets-bootstrap-sass-official"
+  gem "rails-assets-bootswatch"
+  gem "rails-assets-jquery"
+  gem "rails-assets-normalize-css"
+  gem "rails-assets-velocity"
+end
 
 group :development, :test do
   gem "dotenv-rails"
