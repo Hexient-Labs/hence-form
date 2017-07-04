@@ -4,6 +4,7 @@ before_script:
 language: ruby
 rvm:
   - 2.2
+script: COV=1 rspec
 services:
   - redis-server
   - postgresql
