@@ -54,6 +54,7 @@ group :test do
   gem "capybara"
   gem "codeclimate-test-reporter"
   gem "faker"
+  gem "rails-controller-testing"
   gem "rspec-rails"
   gem "selenium-webdriver"
   gem "shoulda-matchers"

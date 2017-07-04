@@ -7,8 +7,8 @@ describe SubmissionsController, type: :controller do
       let(:user) { build(:user) }
       it "attempts to create an account" do
         expect(CreateUser).to receive(:perform).with(email: user.email)
-        post :create, params: sub.data.merge(hence_form_email: sub.to_email)
-        # TODO: Expect to go to confirmation page
+        result = post :create, params: sub.data.merge(hence_form_email: sub.to_email)
+        expect(result).to render_template("submissions/awaiting_confirmation")
       end
     end
 
@@ -22,8 +22,9 @@ describe SubmissionsController, type: :controller do
       end
 
       it "resends the confirmation email" do
-        post :create, params: sub.data.merge(hence_form_email: user.email)
+        result = post :create, params: sub.data.merge(hence_form_email: user.email)
         expect(enqueued_jobs.size).to eq(2)
+        expect(result).to render_template("submissions/awaiting_confirmation")
       end
     end
 
@@ -32,9 +33,8 @@ describe SubmissionsController, type: :controller do
 
       it "creates a new submission" do
         expect(CreateSubmission).to receive(:perform).with(user: user, data: sub.data)
-        post :create, params: sub.data.merge(hence_form_email: user.email)
-        # TODO: Expect it to redirect to success page
-        # expect(response).to render_template("index")
+        result = post :create, params: sub.data.merge(hence_form_email: user.email)
+        expect(result).to render_template("submissions/successful_submission")
       end
     end
   end
