@@ -42,6 +42,14 @@ Layout/IndentArray:
   Enabled: false
 Style/Next:
   Enabled: false
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: '()'
+    '%i': "()"
+    "%I": "()"
+    "%r": "{}"
+    "%w": "()"
+    "%W": "()"
 Style/RaiseArgs:
   EnforcedStyle: compact
 Style/StringLiterals:

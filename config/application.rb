@@ -22,5 +22,16 @@ module HenceForm
     # -- all .rb files in that directory are automatically loaded.
 
     config.autoload_paths += Dir[Rails.root.join("app", "services", "{**}")]
+
+    # SMTP Setup
+    config.action_mailer.smtp_settings = {
+      address:                ENV["SMTP_HOST"],
+      port:                   ENV["SMTP_PORT"].to_i,
+      authentication:         :login,
+      user_name:              ENV["SMTP_USERNAME"],
+      password:               ENV["SMTP_PASSWORD"],
+      domain:                 ENV["HOST"],
+      enable_starttls_auto:   true
+    }
   end
 end
