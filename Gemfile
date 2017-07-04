@@ -47,6 +47,7 @@ group :development do
   gem "overcommit"
   gem "rails_best_practices"
   gem "rubocop"
+  gem "travis"
 end
 
 group :test do
