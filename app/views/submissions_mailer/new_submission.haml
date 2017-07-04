@@ -1,0 +1,26 @@
+:css
+  body {
+    background-color: #edecec;
+  }
+
+  .email-example {
+    max-width: 600px;
+    background-color: #ffffff;
+    padding: 20px 40px 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+%h1{:style => "text-align: center"} New Submission From Hexient Labs
+
+.email-example
+  %h3{:style => "font-family: arial; color:#009fc2;"} Here's What Your Visitor Entered:
+  %td{:align => "center", :valign => "top"}
+    %table{:border => "0", :cellpadding => "20", :cellspacing => "0", :style => "font-family: arial; color:#565458;", :width => "100%"}
+      - @submission.data.each_with_index do |data, idx|
+        - style = "border-bottom:2px solid #edecec; #{idx == 0 ? 'border-top:2px solid #ededec;' : ''}"
+        %tr
+          %th{:align => "right", :style => style, :valign => "top"}
+            = data.first
+          %td{:align => "left", :style => style, :valign => "top"}
+            = data.last

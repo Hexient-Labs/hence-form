@@ -2,6 +2,8 @@ if ENV["COV"]
   require "simplecov"
   SimpleCov.start "rails" do
     add_filter "app/channels/*"
+    add_filter "app/jobs/application_job.rb"
+    add_filter "app/mailers/application_mailer.rb"
   end
   puts "Running SimpleCov"
 end
