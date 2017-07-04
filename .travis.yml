@@ -3,6 +3,7 @@ addons:
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
+dist: trusty
 language: ruby
 rvm:
   - 2.4.1
