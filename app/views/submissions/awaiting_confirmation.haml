@@ -1,1 +1,30 @@
-Yo, we awaiting confirmation. Go to your email homes and get that shit confirmed.
+- content_for :title, "HenceForm - Please Confirm"
+.container
+  %br
+  %br
+  .row
+    .col-sm-10.col-sm-offset-1
+      %i.fa.fa-exclamation-triangle.center-text{ "aria-hidden" => true, "style" => "font-size: 5em; color: darkorange"}
+      %h1.center-text Please Confirm Your Email
+      %hr
+      .row
+        .col-sm-6.col-sm-offset-3
+          %h4.center-text
+            Hello there! It looks like this is your first submission.
+          %br
+          %h4.center-text
+            %strong To activate your form,
+          %h4.center-text
+            click the link in the email we just sent you
+          %br
+          %br
+          %br
+          %br
+          %br
+          %br
+          %h4.center-text
+            Made with
+            %i.fa.fa-heart
+            by
+            = link_to "https://www.hexientlabs.com" do
+              = image_tag('logo_1x.png', width: 25, style: "margin-top: -5px")

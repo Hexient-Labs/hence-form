@@ -229,7 +229,7 @@ PreCommit:
       - '**/*.exs'
 
   EsLint:
-    enabled: true
+    enabled: false
     description: 'Analyze with ESLint'
     required_executable: 'node_modules/.bin/eslint'
     flags: ['--format=compact', --ext=.jsx', '--ext=.js', '--ext=es6']
@@ -239,6 +239,9 @@ PreCommit:
       - '**/*.jsx'
       - '**/*.es6'
     exclude:
+      - 'node_modules'
+      - 'vendor'
+      - 'coverage'
       - 'public/**/*'
 
   ExecutePermissions:

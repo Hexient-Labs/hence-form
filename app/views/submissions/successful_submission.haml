@@ -1,4 +1,108 @@
-Thanks for submitting.
+- content_for :title, "Thank You"
 
-%button{ onclick: "window.history.back()" } Go Back
+%body
+  %header#header.site-header
+    %h1.site-header__title{"data-lead-id" => "site-header-title"} THANK YOU!
+  .main-content
+    %i#checkmark.fa.fa-check.main-content__checkmark
+    %p.main-content__body{"data-lead-id" => "main-content-body"} Thanks a bunch for filling that out. It means a lot to us, just like you do!
+  .container
+    .row
+      .col-xs-12.center-text
+        %a(href="/")
+          %h4 Back
+:css
+  @font-face {
+  font-family: Calibri;
+  font-weight: 400;
+  font-style: normal
+  }
+
+  .cf:after, .cf:before {
+    content: " ";
+    display: table
+  }
+
+  .cf:after {
+    clear: both
+  }
+
+  * {
+    box-sizing: border-box
+  }
+
+  html {
+    font-size: 16px;
+    background-color: #fffffe
+  }
+
+  body {
+    padding: 0 20px;
+    min-width: 300px;
+    font-family: Akkurat-Regular, sans-serif;
+    background-color: #fffffe;
+    color: #1a1a1a;
+    text-align: center;
+    word-wrap: break-word;
+    -webkit-font-smoothing: antialiased
+  }
+
+  a:link, a:visited {
+    color: #00c2a8
+  }
+
+  a:active, a:hover {
+    color: #03a994
+  }
+
+  .site-header {
+    margin: 0 auto;
+    padding: 80px 0 0;
+    max-width: 820px
+  }
+
+  .site-header__title {
+    margin: 0;
+    font-family: Montserrat, sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto
+  }
+
+  .main-content {
+    margin: 0 auto;
+    max-width: 820px
+  }
+
+  .main-content__checkmark {
+    font-size: 4.0625rem;
+    line-height: 1;
+    color: #24b663
+  }
+
+  .main-content__body {
+    margin: 20px 0 0;
+    font-size: 1rem;
+    line-height: 1.4
+  }
+
+  @media only screen and (min-width: 40em) {
+    .site-header {
+      padding-top: 150px
+    }
+    .site-header__title {
+      font-size: 6.25rem
+    }
+    .main-content__checkmark {
+      font-size: 9.75rem
+    }
+    .main-content__body {
+      font-size: 1.25rem
+    }
+  }
 

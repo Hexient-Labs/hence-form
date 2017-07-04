@@ -1,4 +1,32 @@
-Yo, you be confirmed homes.
-
-Now the next person that uses this form will come straight to you.
-
+- content_for :title, "HenceForm - Confirmed!"
+.container
+  %br
+  %br
+  .row
+    .col-sm-10.col-sm-offset-1
+      %i.fa.fa-thumbs-o-up.center-text{ "aria-hidden" => true, "style" => "font-size: 5em; color: darkgreen"}
+      %h1.center-text Form Activated!
+      %hr
+      .row
+        .col-sm-6.col-sm-offset-3
+          %h4.center-text
+            Awesome! Your form is now live.
+          %br
+          %br
+          %br
+          %h4.center-text
+            We'll email all submissions to
+          %h3.center-text
+            %strong=@user.email
+          %br
+          %br
+          %br
+          %br
+          %br
+          %br
+          %h4.center-text
+            Made with
+            %i.fa.fa-heart
+            by
+            = link_to "https://www.hexientlabs.com" do
+              = image_tag('logo_1x.png', width: 25, style: "margin-top: -5px")

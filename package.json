@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "csslint": "^1.0.5"
+    "csslint": "^1.0.5",
+    "eslint": "^4.1.1"
   }
 }

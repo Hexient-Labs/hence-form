@@ -11,9 +11,9 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
 
   # GET /resource/confirmation?confirmation_token=abcdef
   def show
-    user = User.find_by_confirmation_token(params[:confirmation_token])
-    raise ActionController::RoutingError.new("Not Found") unless user
-    user.confirm
+    @user = User.find_by_confirmation_token(params[:confirmation_token])
+    raise ActionController::RoutingError.new("Not Found") unless @user
+    @user.confirm
     render "submissions/successful_confirmation"
   end
 

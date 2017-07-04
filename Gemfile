@@ -30,7 +30,6 @@ source "https://rails-assets.org" do
   gem "rails-assets-bootswatch"
   gem "rails-assets-jquery"
   gem "rails-assets-normalize-css"
-  gem "rails-assets-velocity"
 end
 
 group :development, :test do
