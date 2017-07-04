@@ -11,7 +11,6 @@ class SubmissionsController < ApplicationController
     else
       CreateUser.perform(email: param_email)
       render :awaiting_confirmation
-      # TODO: Route to confirmation page
     end
   end
 
