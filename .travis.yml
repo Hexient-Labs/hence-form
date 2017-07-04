@@ -3,7 +3,7 @@ before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
 language: ruby
 rvm:
-  - 2.2
+  - 2.4.1
 script: COV=1 rspec
 services:
   - redis-server
