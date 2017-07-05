@@ -2,6 +2,7 @@
 [![Issue Count](https://codeclimate.com/github/Hexient-Labs/hence-form/badges/issue_count.svg)](https://codeclimate.com/github/Hexient-Labs/hence-form)
 [![Test Coverage](https://codeclimate.com/github/Hexient-Labs/hence-form/badges/coverage.svg)](https://codeclimate.com/github/Hexient-Labs/hence-form/coverage)
 [![Build Status](https://travis-ci.org/Hexient-Labs/hence-form.svg?branch=master)](https://travis-ci.org/Hexient-Labs/hence-form)
+[![Join the chat at https://gitter.im/hence-form/Lobby](https://badges.gitter.im/hence-form/Lobby.svg)](https://gitter.im/hence-form/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 [![GPL Licence](https://badges.frapsoft.com/os/gpl/gpl.svg?v=103)](https://opensource.org/licenses/GPL-3.0/)
 
@@ -10,8 +11,6 @@
 </p>
 
 # Hexient Labs HenceForm
-
-[![Join the chat at https://gitter.im/hence-form/Lobby](https://badges.gitter.im/hence-form/Lobby.svg)](https://gitter.im/hence-form/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 * [Overview](#overview)
 * [Example](#example)
