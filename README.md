@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/Hexient-Labs/hence-form.svg?branch=master)](https://travis-ci.org/Hexient-Labs/hence-form)
 
 <p align="center">
-  <img src="readme_images/logo_350.png">
+  <img src="readme_images/logo_250.png">
 </p>
 
 # Hexient Labs HenceForm
