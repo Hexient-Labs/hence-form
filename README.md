@@ -11,6 +11,8 @@
 
 # Hexient Labs HenceForm
 
+[![Join the chat at https://gitter.im/hence-form/Lobby](https://badges.gitter.im/hence-form/Lobby.svg)](https://gitter.im/hence-form/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 * [Overview](#overview)
 * [Example](#example)
 * [Deployment](#deployment)
