@@ -62,14 +62,14 @@ values on the next page
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-This project is heavily inspired by the amazing
-[FormSpree](https://www.formspree.io) project.
+*Note*: Even though we use the free Heroku Redis and Heroku Postgres addons, Heroku
+will require that the account you use has a credit card attached to it.
 
 # Running Locally
 
 1. Install the Ruby Version specified in the `.ruby-version` file via RVM or RBenv
 
-1. Install [PostGreSQL](https://www.postgresapp.com) and have it running
+1. Install [PostgreSQL](https://www.postgresapp.com) and have it running
 
 1. Install [Redis](https://www.redis.io) and have it running
 
@@ -95,6 +95,9 @@ This project is licensed under the [GPL v3 License](./LICENSE)
 # Contributions
 
 ![Hexient Labs Logo](readme_images/logo_140.png)
+
+This project is heavily inspired by the amazing [FormSpree](https://www.formspree.io)
+project.
 
 This project is lovingly maintained by the [Hexient Labs](https://www.hexientlabs.com)
 Engineering Team. If you like this project, consider them for your your next project
