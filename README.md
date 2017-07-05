@@ -48,7 +48,7 @@ A form could look like:
 You'll then get an email that looks like:
 
 <p align="center">
-  <img src="readme_images/email_example.png">
+  <img src="readme_images/email_example.png" width="400" border="5">
 </p>
 
 ## Deployment
