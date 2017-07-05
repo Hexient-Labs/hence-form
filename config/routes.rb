@@ -1,6 +1,8 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
+  root to: redirect("https://github.com/Hexient-Labs/hence-form")
+
   scope "app" do
     # Required for devise to know how send customers
     devise_for :users,
