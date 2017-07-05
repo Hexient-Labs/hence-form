@@ -12,6 +12,7 @@
 # Hexient Labs HenceForm
 
 * [Overview](#overview)
+* [Example](#example)
 * [Deployment](#deployment)
 * [Running Locally](#running-locally)
 * [License](#license)
@@ -20,11 +21,19 @@
 ## Overview
 
 Have you ever needed to set up a PHP script to relay form submissions to your email?
-Well, you should use your HenceForm!
+Well, you should use your HenceForm instead! No coding, no setup, just a
+simple way to relay form data into an email.
 
-Just create a form on your site and set the `action` attribute on your form
-to `https://henceform.hexientlabs.com/you@youremail.com`. Then whenever a user
-fills out and submits the form, we'll send you an email with that data.
+1. Create a form on your site and set the `action` attribute on your form
+  to `https://henceform.hexientlabs.com/you@youremail.com`.
+
+1. Whenever a user fills out and submits the form, we'll send you an email
+  with that data.
+
+*Note* The first time you submit a form, it will ask you to confirm your email.
+After that, you're good to go.
+
+## Example
 
 A form could look like:
 
@@ -36,8 +45,11 @@ A form could look like:
 </form>
 ```
 
-The first time you submit a form, it will ask you to confirm your email.
-After that, you're good to go.
+You'll then get an email that looks like:
+
+<p align="center">
+  <img src="readme_images/email_example.png">
+</p>
 
 ## Deployment
 
@@ -52,6 +64,27 @@ This project is heavily inspired by the amazing
 [FormSpree](https://www.formspree.io) project.
 
 # Running Locally
+
+1. Install the Ruby Version specified in the `.ruby-version` file via RVM or RBenv
+
+1. Install [PostGreSQL](https://www.postgresapp.com) and have it running
+
+1. Install [Redis](https://www.redis.io) and have it running
+
+1. Clone the Repo and `cd` into it
+
+1. Install Ruby dependencies via `bundle install`
+
+1. Copy the `.env.example` file to `.env`
+
+1. Set all values in the `.env` file.
+  This is already gitignored so don't worry about committing it.
+
+1. Setup the database using `bundle exec rails db:setup`
+
+1. Run the server using `bundle exec rails server`
+
+1. Run the worker using `bundle exec sidekiq -c 5 -v -q default -q mailers`
 
 # License
 
