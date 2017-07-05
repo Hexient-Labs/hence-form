@@ -1,0 +1,81 @@
+{
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "9.6"
+      }
+    },
+    "heroku-redis"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ],
+  "description": "Hexient Labs HenceForm Form Relay App",
+  "env": {
+    "BUGSNAG_API_KEY": {
+      "description": "API Key from the BugSnag error reporting service"
+    },
+    "HOST": {
+      "description": "URL where it's deployed. Should be <Heroku app name>.herokuapp.com",
+      "value": "<Heroku App Name>.herokuapp.com"
+    },
+    "SECRET_KEY_BASE": {
+      "description": "Random encrypted secret",
+      "generator": "secret"
+    },
+    "SIDEKIQ_PASSWORD": {
+      "description": "Password for the sidekiq web interface available at <Your App URL>/app/sidekiq",
+      "value": "is_awesome"
+    },
+    "SIDEKIQ_REDIS_NAMESPACE": {
+      "description": "Random namespace for Redis usage",
+      "value": "hence_form"
+    },
+    "SIDEKIQ_USERNAME": {
+      "description": "Username for Sidekiq Web interface available at <Your App Url>/app.sidekiq",
+      "value": "henceform"
+    },
+    "SMTP_FROM_NAME": {
+      "description": "Name you want showing on the email (i.e. 'John Doe')"
+    },
+    "SMTP_FROM_EMAIL": {
+      "description": "Email address you want to send from (i.e. 'email@email.com')"
+    },
+    "SMTP_HOST": {
+      "description": "Host provided by your SMTP Provider"
+    },
+    "SMTP_PASSWORD": {
+      "description": "Password provided by your SMTP provider"
+    },
+    "SMTP_PORT": {
+      "description": "Port used by your SMTP provider, typically 587",
+      "value": "587"
+    },
+    "SMTP_USERNAME": {
+      "description": "Username by your SMTP Provider"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    },
+    "worker": {
+      "quantity": 1
+    }
+  },
+  "logo": "https://raw.githubusercontent.com/Hexient-Labs/hence-form/master/readme_images/logo_350.png",
+  "name": "Hexient Labs HenceForm",
+  "keywords": [
+    "ruby",
+    "forms",
+    "rails"
+  ],
+  "repository": "https://github.com/Hexient-Labs/hence-form",
+  "scripts": {
+    "postdeploy": "bundle exec rails db:migrate"
+  },
+  "website": "https://www.hexientlabs.com"
+}

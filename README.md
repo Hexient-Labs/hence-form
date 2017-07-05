@@ -46,6 +46,8 @@ Want to run your own copy of HenceForm? It's simple.
 Use the Heroku Deploy button below and set the required configuration
 values on the next page
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 This project is heavily inspired by the amazing
 [FormSpree](https://www.formspree.io) project.
 
